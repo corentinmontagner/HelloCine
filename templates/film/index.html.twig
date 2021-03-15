@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmController!{% endblock %}
+
+{% block body %}
+    <div>
+        {# décomposition par ligne #}
+        {{ form_start(filmForm) }}
+
+        {{ form_errors(filmForm) }}
+
+        {{ form_label(filmForm.titre) }}
+        {{ form_widget(filmForm.titre) }}
+        {{ form_errors(filmForm.titre) }}
+
+        {{ form_label(filmForm.dateDeSortie) }}
+        {{ form_widget(filmForm.dateDeSortie) }}
+        {{ form_errors(filmForm.dateDeSortie) }}
+
+        {{ form_label(filmForm.duree) }}
+        {{ form_widget(filmForm.duree) }}
+        {{ form_errors(filmForm.duree) }}
+        
+        {{ form_label(filmForm.note) }}
+        {{ form_widget(filmForm.note) }}
+        {{ form_errors(filmForm.note) }}
+
+        {{ form_label(filmForm.genre) }}
+        {{ form_widget(filmForm.genre) }}
+        {{ form_errors(filmForm.genre) }}
+
+        <button type="submit">Envoyer</button>
+        {{ form_end(filmForm) }}
+    </div>
+{% endblock %}
