@@ -17,34 +17,20 @@ class FilmController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $repository = $entityManager->getRepository(Film::class);
-        $films = $repository->findAll();
-
-        foreach ($films as $film) {
-            $entityManager->remove($film);
-            $entityManager->flush();
-        }
-
         $film = new Film();
-        $film
-            ->setTitre('Star Wars')
-            ->setDateDeSortie(new \DateTime('2021-08-27'))
-            ->setDuree(new \DateTime('01:58'))
-            ->setNote(17)
-            ->setGenre('SF')
-        ;
-
-        $entityManager->persist($film);
-        $entityManager->flush();
+        
 
         $filmForm = $this->createForm(FilmType::class, $film);
 
         $filmForm->handleRequest($request);
 
-        if($filmForm->isSubmitted() && $filmForm->isValid()){
-            dump($film);
-        } else {
-            dump('not valid');
+        if($filmForm->isSubmitted()){
+            if($filmForm->isValid()){
+                $entityManager->persist($film);
+                $entityManager->flush();
+            }else {
+                dump('not valid');
+            }
         }
 
         return $this->render(

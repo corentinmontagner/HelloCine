@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CritiqueController!{% endblock %}
+
+{% block body %}
+    <div>
+        {% for critique in critiques %}
+            {{critique.texte}}
+            {{critique.auteur}}
+            {{critique.dateDePublication|date('d/m/Y')}}
+            <a href='{{ path('critique_edit', {'id':critique.id} )}}'>Modifier</a>
+        {% endfor %}
+        <a href='{{ path('critique', {'id':id} )}}'>Ajouter</a>
+    </div>
+{% endblock %}

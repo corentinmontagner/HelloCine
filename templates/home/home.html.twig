@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmController!{% endblock %}
+
+{% block body %}
+    <div>
+        {% for film in films %}
+            {{film.titre}}
+            {{film.dateDeSortie|date('d/m/Y')}}
+            {{film.duree|date('h:i')}}
+            {{film.note}}
+            {{film.genre}}
+            <a href='{{ path('homecritique', {'id':film.id}) }}'>Voir critiques</a>
+        {% endfor %}
+        <button>Ajouter</button>
+    </div>
+{% endblock %}

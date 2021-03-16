@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CritiqueController!{% endblock %}
+
+{% block body %}
+    <div>
+        {# décomposition par ligne #}
+        {{ form_start(critiqueForm) }}
+
+        {{ form_errors(critiqueForm) }}
+
+        {{ form_label(critiqueForm.texte) }}
+        {{ form_widget(critiqueForm.texte) }}
+        {{ form_errors(critiqueForm.texte) }}
+
+        {{ form_label(critiqueForm.auteur) }}
+        {{ form_widget(critiqueForm.auteur) }}
+        {{ form_errors(critiqueForm.auteur) }}
+
+        {{ form_label(critiqueForm.dateDePublication) }}
+        {{ form_widget(critiqueForm.dateDePublication) }}
+        {{ form_errors(critiqueForm.dateDePublication) }}
+
+        <button type="submit">Envoyer</button>
+        {{ form_end(critiqueForm) }}
+    </div>
+{% endblock %}
