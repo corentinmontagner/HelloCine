@@ -15,7 +15,6 @@ class FilmType extends AbstractType
             ->add('titre')
             ->add('dateDeSortie')
             ->add('duree')
-            ->add('note')
             ->add('genre')
         ;
     }

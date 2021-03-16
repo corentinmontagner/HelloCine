@@ -18,7 +18,6 @@ class FilmController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $film = new Film();
-        
 
         $filmForm = $this->createForm(FilmType::class, $film);
 
@@ -28,8 +27,8 @@ class FilmController extends AbstractController
             if($filmForm->isValid()){
                 $entityManager->persist($film);
                 $entityManager->flush();
-            }else {
-                dump('not valid');
+
+                return $this->redirectToRoute('home');
             }
         }
 

@@ -3,7 +3,7 @@
 {% block title %}Hello FilmController!{% endblock %}
 
 {% block body %}
-    <div>
+    <div class='main-center'>
         {# décomposition par ligne #}
         {{ form_start(filmForm) }}
 
@@ -20,16 +20,12 @@
         {{ form_label(filmForm.duree) }}
         {{ form_widget(filmForm.duree) }}
         {{ form_errors(filmForm.duree) }}
-        
-        {{ form_label(filmForm.note) }}
-        {{ form_widget(filmForm.note) }}
-        {{ form_errors(filmForm.note) }}
 
         {{ form_label(filmForm.genre) }}
         {{ form_widget(filmForm.genre) }}
         {{ form_errors(filmForm.genre) }}
 
-        <button type="submit">Envoyer</button>
+        <button type="submit" class='button-submit'>Envoyer</button>
         {{ form_end(filmForm) }}
     </div>
 {% endblock %}

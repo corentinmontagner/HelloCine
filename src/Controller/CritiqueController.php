@@ -6,6 +6,7 @@ use App\Entity\Critique;
 use App\Entity\Film;
 use App\Form\CritiqueType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,8 +34,8 @@ class CritiqueController extends AbstractController
             if($critiqueForm->isValid()){
                 $entityManager->persist($critique);
                 $entityManager->flush();
-            }else {
-                dump('not valid');
+
+                return $this->redirectToRoute('homecritique', array('id' => $id));
             }
         }
 
@@ -59,8 +60,8 @@ class CritiqueController extends AbstractController
         if($critiqueForm->isSubmitted()){
             if($critiqueForm->isValid()){
                 $entityManager->flush();
-            }else {
-                dump('not valid');
+
+                return $this->redirectToRoute('homecritique', array('id' => $id));
             }
         }
 

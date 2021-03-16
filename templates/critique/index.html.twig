@@ -3,7 +3,7 @@
 {% block title %}Hello CritiqueController!{% endblock %}
 
 {% block body %}
-    <div>
+    <div class='main-center'>
         {# décomposition par ligne #}
         {{ form_start(critiqueForm) }}
 
@@ -21,7 +21,7 @@
         {{ form_widget(critiqueForm.dateDePublication) }}
         {{ form_errors(critiqueForm.dateDePublication) }}
 
-        <button type="submit">Envoyer</button>
+        <button type="submit" class='button-submit'>Envoyer</button>
         {{ form_end(critiqueForm) }}
     </div>
 {% endblock %}
