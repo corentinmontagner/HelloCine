@@ -53,6 +53,8 @@ class CritiqueController extends AbstractController
     {
         $critique = $entityManager->getRepository(Critique::class)->find($id);
 
+        $filmId = $critique->getFilm()->getId();
+
         $critiqueForm = $this->createForm(CritiqueType::class, $critique);
 
         $critiqueForm->handleRequest($request);
@@ -61,7 +63,7 @@ class CritiqueController extends AbstractController
             if($critiqueForm->isValid()){
                 $entityManager->flush();
 
-                return $this->redirectToRoute('homecritique', array('id' => $id));
+                return $this->redirectToRoute('homecritique', array('id' => $filmId));
             }
         }
 

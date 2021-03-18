@@ -13,7 +13,7 @@ class FilmType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('dateDeSortie')
+            ->add('dateDeSortie', null, ['widget' => 'single_text'])
             ->add('duree')
             ->add('genre')
         ;
